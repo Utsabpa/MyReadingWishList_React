@@ -1,0 +1,214 @@
+@import './variables';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.85rem;
+}
+
+h1,
+h2 {
+  font-size: 1.25rem;
+  margin: $spacing-xxs 0;
+  font-weight: 300;
+}
+
+input,.count {
+  font-size: 0.8rem;
+  border: 1px solid $gray40;
+  padding: $spacing-xxs;
+  line-height: $spacing-sm;
+}
+
+a {
+  cursor: pointer;
+  color: $blue-accent;
+
+  &:hover {
+    color: $blue-dark;
+  }
+
+  h1 {
+    flex: 1;
+  }
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: $blue-accent;
+  color: $white;
+  padding: $spacing-3xs $spacing-xs;
+
+  button {
+    padding: 0 $spacing-xs;
+  }
+}
+
+.header--content {
+  display: flex;
+  height: 10vh;
+  justify-content: center;
+  > * {
+    display: flex;
+    align-items: center;
+  }
+}
+
+main {
+  padding: $spacing-xs $spacing-xxs;
+  min-width: 300px;
+  max-width: 100vw;
+  margin: 0 auto;
+}
+
+.reading-list-container {
+  padding: 0;
+  width: 400px;
+  height: 100vh;
+
+  h2 {
+    position: relative;
+    color: $white;
+    background-color: $gray80;
+    margin: 0;
+    padding: 0.75rem;
+    text-align: center;
+  }
+
+  button {
+    position: absolute;
+    top: $spacing-xxs;
+    right: $spacing-xxs;
+    padding: 0;
+    min-width: 36px;
+  }
+}
+
+.reading-list-content {
+  padding: $spacing-xxs;
+}
+
+.empty {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  font-size: 1.5rem;
+  color: $gray40;
+}
+
+form {
+  margin-bottom: $spacing-xs;
+}
+
+.full-width {
+  width: 100%;
+}
+.book {
+  border: 1px solid $gray40;
+  display: flex;
+  margin-bottom: $spacing-xs;
+  padding: $spacing-xs;
+}
+.book--container {
+  display: grid;
+    grid-template-columns:auto;
+    grid-gap: $spacing-xs;
+    padding: $spacing-xs;
+}
+
+.search-params {
+  flex-grow: 3;
+
+}
+
+.book-container{
+    .book {
+      flex-direction: column;
+      .book-wrapper{
+        display: flex;
+        .image {
+          max-height: 200px;
+          margin-right: $spacing-xs;
+      }
+      .book-details{
+          width: 100%;
+          position: relative;
+        h2{
+          color: $black;
+          margin-top: 0;
+        }
+        span,p{
+          color: $gray70;
+        }
+      }
+
+      }
+      .add-book{
+        text-align: right;;
+      button{
+        min-width: 36px;
+        padding:$spacing-xxs $spacing-xs ;
+        cursor: pointer;
+        background-color: $blue-accent;
+        color: $white;
+        border: 0;
+        border-radius: $spacing-3xs;
+        &:hover{
+          background-color: $blue-dark;
+          
+        }
+        &:focus{
+          outline: 0;
+        }
+        &:disabled {
+          background: $gray40;
+          cursor: not-allowed;
+        }
+      }
+      }
+  }
+}
+.sidebar{
+  .count{
+    margin-bottom:$spacing-xs ;
+    box-shadow: 4px 4px 12px -5px #000;
+    text-align: center;
+  }
+  .items{
+    padding: $spacing-xs;
+    border: 1px solid $gray40;
+    .cart-book{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom:$spacing-xs;
+        &:last-child{
+          margin: 0;
+        }
+        .remove{
+          &:hover::before{
+            color: red;
+          }
+        }
+        span.remove:before {
+          content: 'x';
+          display: inline-block;
+          color: #000;line-height: 15px;
+          cursor: pointer;
+         
+      }
+    }
+  }
+}
+@media (min-width:600px){
+  .book--container {
+      grid-template-columns: 2fr 1fr;
+  }
+}
